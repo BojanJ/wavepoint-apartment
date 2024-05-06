@@ -230,35 +230,41 @@
                 action="php/reservation.php"
                 method="post"
               >
-                <div class="form-group">
-                  <div class="input-group">
-                    <div class="input-group-addon">
-                      <i class="icon-calendar"></i>
+                <div class="form-group ">
+                  <label>
+                    Enter your start date:
+                    <div class="input-group">
+                      <div class="input-group-addon">
+                        <i class="icon-calendar"></i>
+                      </div>
+                      <input
+                        class="form-control input-lg"
+                        id="dateFrom"
+                        type="date"
+                        name="dateFrom"
+                        placeholder="From: dd/mm/yyyy"
+                        required=""
+                      />
                     </div>
-                    <input
-                      class="form-control input-lg"
-                      id="dateFrom"
-                      type="date"
-                      name="dateFrom"
-                      placeholder="From: dd/mm/yyyy"
-                      required=""
-                    />
-                  </div>
+                  </label>
                 </div>
                 <div class="form-group">
-                  <div class="input-group">
-                    <div class="input-group-addon">
-                      <i class="icon-calendar"></i>
+                  <label>
+                    Enter your end date:
+                    <div class="input-group">
+                      <div class="input-group-addon">
+                        <i class="icon-calendar"></i>
+                      </div>
+                      <input
+                        class="form-control input-lg"
+                        id="dateTo"
+                        type="date"
+                        name="dateTo"
+                        placeholder="To: dd/mm/yyyy"
+                        required=""
+                      />
                     </div>
-                    <input
-                      class="form-control input-lg"
-                      id="dateTo"
-                      type="date"
-                      name="dateTo"
-                      placeholder="To: dd/mm/yyyy"
-                      required=""
-                    />
-                  </div>
+                  </label>
                 </div>
                 <!-- <div class="form-group">
                   <div class="input-group">
