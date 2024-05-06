@@ -4,13 +4,13 @@
       $errors = array();
 
       // Check if date has been entered
-      if (!isset($_POST['date'])) {
-            $errors['date'] = 'Please enter date of reservation';
+      if (!isset($_POST['dateFrom'])) {
+            $errors['dateFrom'] = 'Please enter start date of reservation';
       }
 
       // Check if time has been entered
-      if (!isset($_POST['time'])) {
-            $errors['time'] = 'Please select time of reservation';
+      if (!isset($_POST['dateTo'])) {
+            $errors['dateTo'] = 'Please select end date of reservation';
       }
       
       //Check if people has been entered
@@ -44,17 +44,15 @@
       }
 
 
-
-      $date = $_POST['date'];
-      $time = $_POST['time'];
+      $datefrom = $_POST['dateFrom'];
+      $dateTo = $_POST['dateTo'];
       $people = $_POST['people'];
       $email = $_POST['email'];
       $from = $email;
-      $to = 'info@example.com';  // please change this email id
-      $subject = 'Table Booking : Titan';
+      $to = 'contact@wavepoint-apartments.com';  // please change this email id
+      $subject = 'New Booking: Wavepoint Apartment';
       
-      $body = "From: E-Mail: $email\n Date: $date\n Time: $time\n Number of people: $people";
-
+      $body = "From: E-Mail: $email\n From: $dateFrom\n To: $dateTo\n Number of people: $people";
 
       $headers = "From: ".$from;
 
@@ -63,7 +61,7 @@
       if (mail ($to, $subject, $body, $headers)) {
             $result .= '<div class="alert alert-success alert-dismissible" role="alert">';
             $result .= '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
-            $result .= 'Thank You! We will reserve a table <i class="fa fa-smile"> in that date';
+            $result .= 'Thank You! We will contact you shortly.';
             $result .= '</div>';
 
             echo $result;

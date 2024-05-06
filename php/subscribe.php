@@ -1,29 +1,27 @@
 <?php
+include 'db.php';
 
-	// MailChimp
-	$APIKey = '53bb3bcad3947b9c5b45884b439097******';
-	$listID = 'fd1b8b****';
+$email   = $_POST['email'];
 
-	$email   = $_POST['email'];
 
-	require_once('inc/MCAPI.class.php');
+$sql = "INSERT INTO `mail_list` (`email`) VALUES ('$email')";
 
-	$api = new MCAPI($APIKey);
-	$list_id = $listID;
+// Check if email has been entered and is valid
+if (!isset($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+	$sendstatus = 0;
+	$message = '<div class="alert alert-danger subscription-error" role="alert"><strong>Error:</strong> Please enter a valid email address.</div>';
+} else if ($conn->query($sql) === TRUE) {
+	$sendstatus = 1;
+	$message = '<div class="alert alert-success subscription-success" role="alert"><strong>Success!</strong> Thank you for your your email.</div>';
+} else {
+	$sendstatus = 0;
+	$message = '<div class="alert alert-danger subscription-error" role="alert"><strong>Error:</strong> Something went wrong...</div>';
+}
+$result = array(
+	'sendstatus' => $sendstatus,
+	'message' => $message
+);
 
-	if($api->listSubscribe($list_id, $email) === true) {
-		$sendstatus = 1;
-		$message = '<div class="alert alert-success subscription-success" role="alert"><strong>Success!</strong> Check your email to confirm sign up.</div>';
-	} else {
-		$sendstatus = 0;
-		$message = '<div class="alert alert-danger subscription-error" role="alert"><strong>Error:</strong> ' . $api->errorMessage.'</div>';
-	}
-
-	$result = array(
-		'sendstatus' => $sendstatus,
-		'message' => $message
-	);
-
-	echo json_encode($result);
-
+echo json_encode($result);
+$conn->close();
 ?>
