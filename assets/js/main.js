@@ -578,8 +578,8 @@ console.log('%c Proudly Crafted with ZiOn.', 'background: #222; color: #bada55')
                         $cfsubmit.text(cfsubmitText);
                         $('#reservationForm input[name=dateFrom]').val('');
                         $('#reservationForm input[name=dateTo]').val('');
-                        $('#reservationForm textarea[name=people]').val('');
-                        $('#reservationForm textarea[name=email]').val('');
+                        $('#reservationForm input[name=people]').val('');
+                        $('#reservationForm input[name=email]').val('');
                     },
                     error: function (data) {
                         alert("Error occurd! Please try again");
