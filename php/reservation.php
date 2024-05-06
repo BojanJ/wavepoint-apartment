@@ -4,13 +4,13 @@
       $errors = array();
 
 
-      $datefrom = $_POST['dateFrom'];
+      $dateFrom = $_POST['dateFrom'];
       $dateTo = $_POST['dateTo'];
       $people = $_POST['people'];
       $email = $_POST['email'];
 
       // Check if date has been entered
-      if (!isset($datefrom)) {
+      if (!isset($dateFrom)) {
             $errors['dateFrom'] = 'Please enter start date of reservation';
       }
 
@@ -50,11 +50,10 @@
       }
 
       $from = $email;
-      $to = 'contact@wavepoint-apartments.com';  // please change this email id
+      $to = 'contact@wavepoint-apartments.com';  
       $subject = 'New Booking: Wavepoint Apartment';
       
-      
-      $body = "From: E-Mail: $email\n From: $datefrom \n To: $dateTo\n Number of people: $people";
+      $body = "From: E-Mail: $email\nCheck-in: $dateFrom \nCheck-out: $dateTo\nNumber of guests: $people";
 
       $headers = "From: ".$from;
 
