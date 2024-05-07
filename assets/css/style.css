@@ -2898,6 +2898,9 @@ Google map
     text-align: center;
     margin: 10px 0;
   }
+  .footer .footer-social-links {
+    text-align: center;
+  }
   /* Half-image */
   .side-image-text {
     padding-left: 15px;
