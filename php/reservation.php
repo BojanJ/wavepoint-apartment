@@ -7,18 +7,19 @@
       $dateFrom = $_POST['dateFrom'];
       $dateTo = $_POST['dateTo'];
       $people = $_POST['people'];
+      $phoneNumber = $_POST['phoneNumber'];
       $email = $_POST['email'];
 
       // Check if date has been entered
-      if (!isset($dateFrom)) {
+      if (empty($dateFrom) && !preg_match('/^\d{4}-\d{2}-\d{2}$/', $dateFrom)) {
             $errors['dateFrom'] = 'Please enter start date of reservation';
       }
 
       // Check if time has been entered
-      if (!isset($dateTo)) {
+      if (empty($dateTo) && !preg_match('/^\d{4}-\d{2}-\d{2}$/', $dateTo)) {
             $errors['dateTo'] = 'Please select end date of reservation';
-      }
-      
+      } 
+
       //Check if people has been entered
       if (!isset($people)) {
             $errors['people'] = 'Please enter the number of people for reservation';
@@ -53,7 +54,7 @@
       $to = 'contact@wavepoint-apartments.com';  
       $subject = 'New Booking: Wavepoint Apartment';
       
-      $body = "From: E-Mail: $email\nCheck-in: $dateFrom \nCheck-out: $dateTo\nNumber of guests: $people";
+      $body = "From: E-Mail: $email\nPhone number: $phoneNumber\nCheck-in: $dateFrom \nCheck-out: $dateTo\nNumber of guests: $people";
 
       $headers = "From: ".$from;
 
