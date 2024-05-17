@@ -25,6 +25,10 @@
             $errors['people'] = 'Please enter the number of people for reservation';
       }
 
+      if(!isset($phoneNumber)){
+            $errors['phoneNumber'] = 'Please enter your phone number';
+      }
+
       // Check if email has been entered and is valid
       if (!isset($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $errors['email'] = 'Please enter a valid email address';
