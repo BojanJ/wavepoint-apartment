@@ -57,14 +57,37 @@
       $from = $email;
       $to = 'contact@wavepoint-apartments.com';  
       $subject = 'New Booking: Wavepoint Apartment';
+      $subject2 = 'Reservation Availability: Wavepoint Apartment';
       
-      $body = "From: E-Mail: $email\nPhone number: $phoneNumber\nCheck-in: $dateFrom \nCheck-out: $dateTo\nNumber of guests: $people";
+      $body = '<!doctypehtml><style>body{font-family:Arial,sans-serif;margin:0;padding:0;background-color:#f4f4f4}.email-container{width:100%;max-width:600px;margin:20px auto;background-color:#fff;border-radius:5px;box-shadow:0 0 10px rgba(0,0,0,.1);padding:20px}.email-header{font-size:24px;font-weight:700;text-align:center;color:#333;margin-bottom:20px}.email-content{font-size:16px;color:#555;line-height:1.5}.email-content p{margin:10px 0}.email-footer{text-align:center;font-size:14px;color:#999;margin-top:20px}</style><div class=email-container><div class=email-header>Reservation Details</div><div class=email-content><p><strong>From:</strong> E-Mail: '.$from.'<p><strong>Phone number:</strong> '.$phoneNumber.'<p><strong>Check-in:</strong> '.$dateFrom.'<p><strong>Check-out:</strong> '.$dateTo.'<p><strong>Number of guests:</strong> '.$people.'</div><div class=email-footer>Thank you for your reservation, We will contact you soon!</div></div>';
 
-      $headers = "From: ".$from;
+      // $headers = "From: ".$from;
+      $headers = "MIME-Version: 1.0" . "\r\n";
+      $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+      // Additional headers
+      $headers .= 'From: '.$from . "\r\n";  // Replace with your "From" address
+      $headers .= 'X-Mailer: PHP/' . phpversion();
+
+      
+      $headers2 = "MIME-Version: 1.0" . "\r\n";
+      $headers2 .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+      // Additional headers
+      $headers2 .= 'From: '.$to . "\r\n";  // Replace with your "From" address
+      $headers2 .= 'X-Mailer: PHP/' . phpversion();
 
       //send the email
       $result = '';
+      $result2 = '';
       if (mail ($to, $subject, $body, $headers)) {
+            
+            if(mail ($from, $subject2, $body, $headers2)) {
+                  $result2 .= 'Email sent successfully.';
+              } else {
+                  $result2 .= 'Failed to send email.';
+              }
+
             $result .= '<div class="alert alert-success alert-dismissible" role="alert">';
             $result .= '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
             $result .= 'Thank You! We will contact you shortly.';
