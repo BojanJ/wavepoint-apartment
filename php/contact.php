@@ -1,6 +1,22 @@
 <?php
-
 	$errors = array();
+
+	// Check if reCAPTCHA response exists
+	if (!isset($_POST['g-recaptcha-response'])) {
+		$errors['recaptcha'] = 'Please complete the reCAPTCHA';
+	} else {
+		$recaptcha_secret = '6LcQjjUqAAAAAHf322RIudXKfLkhm3T6CFBosndZ';
+		$recaptcha_response = $_POST['g-recaptcha-response'];
+
+		// Make a POST request to Google to verify the reCAPTCHA response
+		$response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$recaptcha_secret}&response={$recaptcha_response}");
+		$responseKeys = json_decode($response, true);
+
+		// Check if reCAPTCHA verification was successful
+		if (intval($responseKeys["success"]) !== 1) {
+			$errors['recaptcha'] = 'Failed to validate reCAPTCHA. Please try again.';
+		}
+	}
 
 	// Check if name has been entered
 	if (!isset($_POST['name'])) {
