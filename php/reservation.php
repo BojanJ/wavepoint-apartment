@@ -59,9 +59,237 @@
       $subject = 'New Booking: Wavepoint Apartment';
       $subject2 = 'Reservation Availability: Wavepoint Apartment';
       
-      $body = '<!doctypehtml><style>body{font-family:Arial,sans-serif;margin:0;padding:0;background-color:#f4f4f4}.email-container{width:100%;max-width:600px;margin:20px auto;background-color:#fff;border-radius:5px;box-shadow:0 0 10px rgba(0,0,0,.1);padding:20px}.email-header{font-size:24px;font-weight:700;text-align:center;color:#333;margin-bottom:20px}.email-content{font-size:16px;color:#555;line-height:1.5}.email-content p{margin:10px 0}.email-footer{text-align:center;font-size:14px;color:#999;margin-top:20px}</style><div class=email-container><div class=email-header>Reservation Details</div><div class=email-content><p><strong>From:</strong> E-Mail: '.$from.'<p><strong>Phone number:</strong> '.$phoneNumber.'<p><strong>Check-in:</strong> '.$dateFrom.'<p><strong>Check-out:</strong> '.$dateTo.'<p><strong>Number of guests:</strong> '.$people.'</div><div class=email-footer>Thank you for your reservation, We will contact you soon!</div></div>';
+      $body = '<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation Confirmation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+        
+        .email-container {
+            max-width: 650px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .email-hero {
+            position: relative;
+            height: 250px;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                        url("https://www.wavepoint-apartments.com/assets/images/ApartmentHero.jpg");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .email-hero h1 {
+            color: white;
+            font-size: 32px;
+            font-weight: 600;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+        
+        .email-content {
+            padding: 40px 30px;
+        }
+        
+        .greeting {
+            font-size: 18px;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .reservation-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 5px solid #007bff;
+        }
+        
+        .reservation-card h3 {
+            color: #2c3e50;
+            font-size: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+        
+        .detail-label {
+            font-weight: 600;
+            color: #495057;
+            font-size: 16px;
+        }
+        
+        .detail-value {
+            color: #007bff;
+            font-weight: 500;
+            font-size: 16px;
+        }
+        
+        .contact-info {
+            background: #007bff;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            text-align: center;
+        }
+        
+        .contact-info h4 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .contact-info p {
+            margin: 5px 0;
+            opacity: 0.9;
+        }
+        
+        .email-footer {
+            background: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid #dee2e6;
+        }
+        
+        .footer-text {
+            color: #6c757d;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .social-links {
+            margin-top: 20px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            display: inline-block;
+            margin: 10px 5px;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+        
+        @media (max-width: 600px) {
+            .email-container {
+                margin: 10px;
+                border-radius: 10px;
+            }
+            
+            .email-content {
+                padding: 20px 15px;
+            }
+            
+            .email-hero h1 {
+                font-size: 24px;
+            }
+            
+            .detail-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="email-hero">
+            <h1>Wavepoint Apartments</h1>
+        </div>
+        
+        <div class="email-content">
+            <div class="greeting">
+                <strong>Thank you for your reservation request!</strong><br>
+                We have received your booking details and will contact you shortly.
+            </div>
+            
+            <div class="reservation-card">
+                <h3>📋 Reservation Details</h3>
+                <div class="detail-row">
+                    <span class="detail-label">📧 Email:</span>
+                    <span class="detail-value">'.$from.'</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">📱 Phone:</span>
+                    <span class="detail-value">'.$phoneNumber.'</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">📅 Check-in:</span>
+                    <span class="detail-value">'.date('F j, Y', strtotime($dateFrom)).'</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">📅 Check-out:</span>
+                    <span class="detail-value">'.date('F j, Y', strtotime($dateTo)).'</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">👥 Guests:</span>
+                    <span class="detail-value">'.$people.' '.($people == 1 ? 'person' : 'people').'</span>
+                </div>
+            </div>
+            
+            <div class="contact-info">
+                <h4>🏢 Contact Information</h4>
+                <p><strong>Email:</strong> contact@wavepoint-apartments.com</p>
+                <p><strong>Website:</strong> www.wavepoint-apartments.com</p>
+                <p>We will review your request and confirm availability within 24 hours.</p>
+            </div>
+        </div>
+        
+        <div class="email-footer">
+            <div class="footer-text">
+                <strong>What happens next?</strong><br>
+                Our team will review your reservation request and check availability for your selected dates.
+                You will receive a confirmation email within 24 hours with further instructions.
+            </div>
+            <div class="footer-text">
+                Questions? Feel free to contact us at any time!
+            </div>
+            <div style="margin-top: 20px; color: #adb5bd; font-size: 12px;">
+                © '.date('Y').' Wavepoint Apartments. All rights reserved.
+            </div>
+        </div>
+    </div>
+</body>
+</html>';
 
-      // $headers = "From: ".$from;
       $headers = "MIME-Version: 1.0" . "\r\n";
       $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
