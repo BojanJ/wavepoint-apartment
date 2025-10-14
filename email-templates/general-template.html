@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Wave Point Apartment - Email Template</title>
+    <style>
+        /* Reset styles for email compatibility */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Open Sans", Arial, sans-serif;
+            line-height: 1.6;
+            color: #666;
+            background: #f6f6f6;
+            padding: 20px;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Container */
+        .email-container {
+            max-width: 650px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Header with hero image */
+        .email-header {
+            position: relative;
+            height: 200px;
+            background: linear-gradient(rgba(154, 147, 130, 0.57), rgba(115, 54, 31, 0.67)),
+                        url('https://www.wavepoint-apartments.com/assets/images/ApartmentHero.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .header-content {
+            text-align: center;
+            color: white;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        
+        .logo-placeholder {
+            width: 60px;
+            height: 60px;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .email-header h1 {
+            font-family: "Roboto Condensed", Arial, sans-serif;
+            font-size: 28px;
+            font-weight: 600;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            letter-spacing: 1px;
+        }
+        
+        /* Main content */
+        .email-content {
+            padding: 40px 30px;
+        }
+        
+        .greeting {
+            font-size: 18px;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+        
+        .greeting strong {
+            color: #9a9382;
+            font-weight: 600;
+        }
+        
+        /* Content sections */
+        .content-section {
+            margin: 25px 0;
+        }
+        
+        .content-section h2 {
+            color: #2c3e50;
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-family: "Roboto Condensed", Arial, sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .content-section p {
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+        
+        /* Info card styling */
+        .info-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 5px solid #9a9382;
+        }
+        
+        .info-card h3 {
+            color: #2c3e50;
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-family: "Roboto Condensed", Arial, sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* List styling */
+        .styled-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .styled-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .styled-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #9a9382;
+            font-weight: bold;
+        }
+        
+        .styled-list li:last-child {
+            border-bottom: none;
+        }
+        
+        /* Button styling */
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #e5e5e5;
+            color: #111;
+            text-decoration: none;
+            border-radius: 2px;
+            font-family: "Roboto Condensed", Arial, sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 11px;
+            font-weight: 400;
+            transition: all 0.125s ease-in-out;
+            margin: 5px;
+        }
+        
+        .btn:hover {
+            background: #d8d8d8;
+            color: #111;
+        }
+        
+        .btn-primary {
+            background: #9a9382;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #8a8572;
+            color: white;
+        }
+        
+        .btn-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        /* Contact info section */
+        .contact-info {
+            background: #9a9382;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            text-align: center;
+        }
+        
+        .contact-info h4 {
+            margin-bottom: 10px;
+            font-size: 18px;
+            font-family: "Roboto Condensed", Arial, sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .contact-info p {
+            margin: 5px 0;
+            opacity: 0.9;
+        }
+        
+        /* Footer */
+        .email-footer {
+            background: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid #dee2e6;
+        }
+        
+        .footer-text {
+            color: #6c757d;
+            font-size: 14px;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .footer-text strong {
+            color: #2c3e50;
+        }
+        
+        .social-links {
+            margin: 20px 0;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            margin: 0 8px;
+            color: #6c757d;
+            font-size: 18px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: #9a9382;
+        }
+        
+        .copyright {
+            color: #adb5bd;
+            font-size: 12px;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            
+            .email-container {
+                margin: 0;
+                border-radius: 10px;
+            }
+            
+            .email-content {
+                padding: 20px 15px;
+            }
+            
+            .email-header {
+                height: 150px;
+            }
+            
+            .email-header h1 {
+                font-size: 20px;
+            }
+            
+            .btn {
+                display: block;
+                margin: 10px 0;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <!-- Header with branding -->
+        <div class="email-header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo-placeholder">
+                        <img src="https://www.wavepoint-apartments.com/assets/images/logo/logo.svg" alt="Wave Point Logo" class="logo-image">
+                    </div>
+                    <span style="font-family: 'Roboto Condensed', Arial, sans-serif; font-size: 18px; font-weight: 400;">WAVE POINT</span>
+                </div>
+                <h1>Welcome to Wave Point</h1>
+            </div>
+        </div>
+        
+        <!-- Main content -->
+        <div class="email-content">
+            <!-- Greeting -->
+            <div class="greeting">
+                <strong>Hello [Guest Name],</strong><br>
+                Thank you for your interest in Wave Point Apartment!
+            </div>
+            
+            <!-- Main content section -->
+            <div class="content-section">
+                <h2>Your Perfect Getaway Awaits</h2>
+                <p>Located in the heart of Asprovalta, our apartment offers the perfect blend of comfort and convenience. Just steps away from the beautiful beaches of northern Greece, you'll experience the charm of this seaside town while enjoying modern amenities.</p>
+                
+                <p>Whether you're here for a romantic getaway, family vacation, or business trip, Wave Point Apartment provides everything you need for a memorable stay.</p>
+            </div>
+            
+            <!-- Info card -->
+            <div class="info-card">
+                <h3>What Makes Us Special</h3>
+                <ul class="styled-list">
+                    <li>Prime location - less than 1 minute walk to the beach</li>
+                    <li>Modern amenities and comfortable furnishing</li>
+                    <li>Free parking available</li>
+                    <li>High-speed Wi-Fi throughout</li>
+                    <li>Pet-friendly environment</li>
+                    <li>24/7 customer support</li>
+                </ul>
+            </div>
+            
+            <!-- Action buttons -->
+            <div class="btn-container">
+                <a href="https://www.wavepoint-apartments.com/book.html" class="btn btn-primary">Book Now</a>
+                <a href="https://www.wavepoint-apartments.com/gallery.html" class="btn">View Gallery</a>
+                <a href="https://www.wavepoint-apartments.com/location.html" class="btn">Explore Location</a>
+            </div>
+            
+            <!-- Contact information -->
+            <div class="contact-info">
+                <h4>Get in Touch</h4>
+                <p><strong>Email:</strong> contact@wavepoint-apartments.com</p>
+                <p><strong>Website:</strong> www.wavepoint-apartments.com</p>
+                <p><strong>Location:</strong> Asprovalta, Thessaloniki, Greece</p>
+                <p style="margin-top: 15px;">We're here to help make your stay unforgettable!</p>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="email-footer">
+            <div class="footer-text">
+                <strong>Experience Asprovalta</strong><br>
+                Discover the beauty of northern Greece's coastline, enjoy local cuisine, and create lasting memories at Wave Point Apartment.
+            </div>
+            
+            <div class="footer-text">
+                Questions about your stay? Our team is always ready to assist you!
+            </div>
+            
+            <!-- Social links -->
+            <div class="social-links">
+                <a href="#" title="Facebook">📘</a>
+                <a href="#" title="Instagram">📷</a>
+                <a href="#" title="Twitter">🐦</a>
+                <a href="#" title="Email">✉️</a>
+            </div>
+            
+            <div class="copyright">
+                © 2025 Wave Point Apartment. All rights reserved.
+            </div>
+        </div>
+    </div>
+</body>
+</html>
