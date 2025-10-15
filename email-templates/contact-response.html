@@ -54,21 +54,32 @@
             align-items: center;
             justify-content: center;
             margin-bottom: 15px;
+            flex-direction: column;
         }
         
         .logo-placeholder {
             width: 60px;
             height: 60px;
-            margin-right: 15px;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
         }
         
         .logo-image {
             width: 100%;
             height: 100%;
             object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+        
+        .logo-text {
+            font-family: "Roboto Condensed", Arial, sans-serif;
+            font-size: 18px;
+            font-weight: 400;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
         
         .email-header h1 {
@@ -304,7 +315,7 @@
                     <div class="logo-placeholder">
                         <img src="https://www.wavepoint-apartments.com/assets/images/logo/logo.svg" alt="Wave Point Logo" class="logo-image">
                     </div>
-                    <span style="font-family: 'Roboto Condensed', Arial, sans-serif; font-size: 18px; font-weight: 400;">WAVE POINT</span>
+                    <div class="logo-text">WAVE POINT</div>
                 </div>
                 <h1>Thank You for Contacting Us</h1>
             </div>

@@ -54,21 +54,32 @@
             align-items: center;
             justify-content: center;
             margin-bottom: 15px;
+            flex-direction: column;
         }
         
         .logo-placeholder {
             width: 60px;
             height: 60px;
-            margin-right: 15px;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
         }
         
         .logo-image {
             width: 100%;
             height: 100%;
             object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+        
+        .logo-text {
+            font-family: "Roboto Condensed", Arial, sans-serif;
+            font-size: 18px;
+            font-weight: 400;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
         
         .email-header h1 {
@@ -161,9 +172,9 @@
         .btn {
             display: inline-block;
             padding: 12px 25px;
-            background: #e5e5e5;
-            color: #111;
-            text-decoration: none;
+            background: #e5e5e5 !important;
+            color: #111 !important;
+            text-decoration: none !important;
             font-family: "Roboto Condensed", Arial, sans-serif;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -171,21 +182,24 @@
             font-weight: 400;
             transition: all 0.125s ease-in-out;
             margin: 5px;
+            border: none;
         }
         
         .btn:hover {
-            background: #d8d8d8;
-            color: #111;
+            background: #d8d8d8 !important;
+            color: #111 !important;
+            text-decoration: none !important;
         }
         
         .btn-primary {
-            background: #9a9382;
-            color: white;
+            background: #9a9382 !important;
+            color: white !important;
         }
         
         .btn-primary:hover {
-            background: #8a8572;
-            color: white;
+            background: #8a8572 !important;
+            color: white !important;
+            text-decoration: none !important;
         }
         
         .btn-container {
@@ -295,7 +309,7 @@
                     <div class="logo-placeholder">
                         <img src="https://www.wavepoint-apartments.com/assets/images/logo/logo.svg" alt="Wave Point Logo" class="logo-image">
                     </div>
-                    <span style="font-family: 'Roboto Condensed', Arial, sans-serif; font-size: 18px; font-weight: 400;">WAVE POINT</span>
+                    <div class="logo-text">WAVE POINT</div>
                 </div>
                 <h1>Welcome to Wave Point</h1>
             </div>
@@ -332,9 +346,9 @@
             
             <!-- Action buttons -->
             <div class="btn-container">
-                <a href="https://www.wavepoint-apartments.com/book.html" class="btn btn-primary">Book Now</a>
-                <a href="https://www.wavepoint-apartments.com/gallery.html" class="btn">View Gallery</a>
-                <a href="https://www.wavepoint-apartments.com/location.html" class="btn">Explore Location</a>
+                <a href="https://www.wavepoint-apartments.com/book.html" class="btn btn-primary" style="display: inline-block; padding: 12px 25px; background: #9a9382 !important; color: white !important; text-decoration: none !important; font-family: 'Roboto Condensed', Arial, sans-serif; text-transform: uppercase; letter-spacing: 2px; font-size: 11px; font-weight: 400; margin: 5px; border: none;">BOOK NOW</a>
+                <a href="https://www.wavepoint-apartments.com/gallery.html" class="btn" style="display: inline-block; padding: 12px 25px; background: #e5e5e5 !important; color: #111 !important; text-decoration: none !important; font-family: 'Roboto Condensed', Arial, sans-serif; text-transform: uppercase; letter-spacing: 2px; font-size: 11px; font-weight: 400; margin: 5px; border: none;">VIEW GALLERY</a>
+                <a href="https://www.wavepoint-apartments.com/location.html" class="btn" style="display: inline-block; padding: 12px 25px; background: #e5e5e5 !important; color: #111 !important; text-decoration: none !important; font-family: 'Roboto Condensed', Arial, sans-serif; text-transform: uppercase; letter-spacing: 2px; font-size: 11px; font-weight: 400; margin: 5px; border: none;">EXPLORE LOCATION</a>
             </div>
             
             <!-- Contact information -->

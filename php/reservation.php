@@ -61,7 +61,26 @@
       
       // Load the reservation email template
       $templatePath = dirname(__FILE__) . '/../email-templates/reservation-confirmation.html';
+      
+      if (!file_exists($templatePath)) {
+            $result = '<div class="alert alert-danger alert-dismissible" role="alert">';
+            $result .= '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
+            $result .= 'Email template not found. Please contact administrator.';
+            $result .= '</div>';
+            echo $result;
+            die();
+      }
+      
       $body = file_get_contents($templatePath);
+      
+      if ($body === false) {
+            $result = '<div class="alert alert-danger alert-dismissible" role="alert">';
+            $result .= '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
+            $result .= 'Unable to load email template. Please contact administrator.';
+            $result .= '</div>';
+            echo $result;
+            die();
+      }
       
       // Replace placeholder values with actual reservation data
       $body = str_replace('guest@example.com', $from, $body);
